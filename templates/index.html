@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+    <title>Secure File Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="container navbar">
+            <div class="logo">Secure<span class="green">Analyzer</span></div>
+            <ul class="nav-links">
+                <li><a href="#" class="nav-link active" data-section="home">Home</a></li>
+                <li><a href="#" class="nav-link" data-section="analysis">Files Analyzer</a></li>
+                <li><a href="#" class="nav-link" data-section="train">Woner</a></li>
+                <li><a href="#" class="nav-link" data-section="contact">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section class="home-section" id="home">
+        <div class="container">
+            <div class="home-content">
+                <div class="home-text">
+                     <h1>
+                        <span class="tagline-reveal">
+                        Privacy-<span class="orange">first</span> AI <span class="orange">platform</span></span>
+                    </h1>
+                    <p>Our secure platform allows you to analyze encrypted files without decrypting them. Upload your files and get detailed analysis reports to understand their content and potential security implications.</p>
+                    <button class="btn" id="analysis-btn">Analyze File</button>
+                </div>
+                <div class="home-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Data Analysis">
+                </div>
+            </div>
+            <button class="btn" id="analyze-btn" style="display: none;">Analyze</button>
+        </div>
+    </section>
+
+    <!-- File Analysis Section -->
+    <section class="analysis-section" id="analysis">
+        <div class="container">
+            <div class="upload-area">
+                <h2>Upload Your File</h2>
+                <p>Select a file to analyze. Our system will process the content and provide a detailed report.</p>
+                
+                <div class="file-upload">
+                    <label for="file-input" class="file-upload-label">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        Choose File to Upload
+                    </label>
+                    <input type="file" id="file-input" accept=".csv">
+                </div>
+            </div>
+
+            <div class="file-container">
+                <h2>Uploaded Files</h2>
+                <div class="lst-container">
+                <div class="file-grid" id="file-grid"><p class="no-f" id="no-f">No file Uploaded Yet</p></div>  <!-- File grid container -->
+                </div>
+            </div>
+
+            <!-- Popup Overlay -->
+            <div class="popup-overlay" id="popupOverlay">
+                <div class="popup" id="popup">
+                    <span class="close" id="closePopup">&times;</span>
+                    <h3>File Content</h3>
+                    <div class="file-content" id="file-content"></div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </section>
+
+<!--    woner section-->
+    <section class="train-section" id="train">
+        <div class="container">
+            <div class="efile-container">
+                <h2>Encrypted Files</h2>
+                <div class="elst-container">
+                <div class="efile-grid" id="efile-grid"></div>  <!-- File grid container -->
+                </div>
+            </div>
+
+            <!-- Popup Overlay -->
+            <div class="epopup-overlay" id="epopupOverlay">
+                <div class="epopup" id="epopup">
+                    <span class="eclose" id="eclosePopup">&times;</span>
+                    <h3>File Content</h3>
+                    <div class="efile-content" id="efile-content"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div>
+            <button class="tbtn" id="train-btn" style="display: block;">Train Model</button>
+            <div class="progress-container" id="progress-container" style="display: none;">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill">
+                        <span class="progress-text" id="progress-text">Model training in progress...</span>
+                    </div>
+                </div>
+                    <!-- Display Accuracy & Labels -->
+                <p class="status" id="accuracy"></p>
+                <div class="info-box">
+                    <p class="status-box status-box-wrap" id="encrypted-labels">Encrypted Labels: </p>
+                </div>
+            </div>
+
+            <button class="tbtn" id="p-btn" style="display: none;">Predict</button>
+            <div class="info-box">
+                <p class="status-box status-box-wrap" id="predicted-labels" style="display: none;">
+                    Predicted Labels:
+                </p>
+                <div id="chart-container" >
+                    <canvas id="labels-chart" style="display: none;" ></canvas>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div id="contact1" class="section container hidden">
+
+            <!-- About Us Box -->
+            <div class="about-box">
+                <h1>About Us</h1>
+                <p style="text-align: justify;">At AI Secure Analyzer, we are a team of passionate researchers and developers dedicated to advancing privacy-first AI solutions.</p>
+                <p style="text-align: justify;">Our mission is to leverage homomorphic encryption to enable secure and confidential AI model analysis without compromising sensitive data.</p>
+                <p style="text-align: justify;">We believe in a future where AI can be both powerful and private, empowering users with trust and security.</p>
+            </div>
+
+            <!-- Contact Heading -->
+            <h1 style="text-align: center; margin-top:20px;color:#ff7300">📞 We'd Love to Hear From You</h1>
+            <p style="color:rgb(245, 245, 245);">Reach out to our team for queries, support, or collaborations.</p>
+
+            <!-- Meet Our Team Section -->
+            <h1 style="text-align: center; margin-top:60px;">Meet Our Team</h1>
+
+            <div class="team-container">
+                <div class="member-box">
+                    <img src="{{ url_for('static', filename='images/a.jpg') }}" alt="Shuvankar Dhara" class="member-image">
+                    <p><strong>Shuvankar Dhara</strong></p>
+                    <p style="color:#ff9900">Email: <a href="mailto:shuvankardhara4@gmail.com">shuvankardhara4@gmail.com</a></p>
+                    <p style="color:#ff9900"><a href="https://www.linkedin.com/in/shuvankar-dhara" target="_blank">LinkedIn</a></p>
+                </div>
+                <div class="member-box">
+                    <img src="{{ url_for('static', filename='images/d.jpg') }}" alt="Shristy Dutta" class="member-image">
+                    <p><strong>Shristy Dutta</strong></p>
+                    <p style="color:#ff9900">Email:<br> <a href="mailto:duttashristy100@gmail.com">duttashristy100@gmail.com</a></p>
+                    <p style="color:#ff9900"><a href="https://www.linkedin.com/in/shristy-dutta-a38bb6250" target="_blank">LinkedIn</a></p>
+                </div>
+                <div class="member-box">
+                    <img src="{{ url_for('static', filename='images/b.jpg') }}" alt="Bilash Mallick" class="member-image">
+                    <p><strong>Bilash Mallick</strong></p>
+                    <p style="color:#ff9900">Email: <a href="mailto:mallickbilash21@gmail.com">mallickbilash21@gmail.com</a></p>
+                    <p style="color:#ff9900"><a href="https://www.linkedin.com/in/bilash-mallick-020915270" target="_blank">LinkedIn</a></p>
+                </div>
+
+                <div class="member-box">
+                    <img src="{{ url_for('static', filename='images/c.jpg') }}" alt="Sayan Paul" class="member-image">
+                    <p><strong>Sayan Paul</strong></p>
+                    <p style="color:#ff9900">Email: <a href="mailto:paulsayan598@gmail.com">paulsayan598@gmail.com</a></p>
+                    <p style="color:#ff9900"><a href="https://www.linkedin.com/in/sayan-paul-4b9124258" target="_blank">LinkedIn</a></p>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 SecureAnalyzer. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
