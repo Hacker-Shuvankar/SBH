@@ -1,0 +1,7 @@
+supabase
+tenseal
+numpy
+pandas
+joblib
+scikit-learn
+flask
